@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="org.beangle.wechat.core.WechatModule"  class="org.beangle.wechat.core.WechatModule"/>
+	<bean id="org.beangle.wechat.corp.WechatCorpModule" class="org.beangle.wechat.corp.WechatCorpModule" />
+	<bean id="org.beangle.wechat.app.WechatAppModule" class="org.beangle.wechat.app.WechatAppModule" />
+	<bean id="org.beangle.wechat.timetask.TimeTaskModule" class="org.beangle.wechat.timetask.TimeTaskModule" />
+	
+	<!-- 动态定时器 -->
+	<bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean"/>
+	<bean id="org.beangle.wechat.timetask.listener.InitTimeTaskListener" class="org.beangle.wechat.timetask.listener.InitTimeTaskListener" init-method="init" autowire="byType"/>
+</beans>

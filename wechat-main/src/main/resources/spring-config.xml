@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+	
+	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName">
+			<value>org.h2.Driver</value>
+		</property>
+		<property name="url">
+			<value>jdbc:h2:D:\workspace\usst\fwpt\fwpt\fwpt-main\data/u_fwpt;AUTO_SERVER=TRUE</value>
+		</property>
+		<property name="username">
+			<value>sa</value>
+		</property>
+		<property name="password">
+			<value></value>
+		</property>
+	</bean> 
+	
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="jdbcUrl" value="${dataSource.jdbcUrl}"/>
+		<property name="user" value="${dataSource.user}"/> 
+		<property name="password" value="${dataSource.password}"/>
+	</bean>
+	-->
+	
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
+		<!-- 基本属性 url、user、password -->
+	    <property name="url" value="${dataSource.jdbcUrl}" />
+	    <property name="username" value="${dataSource.user}" />
+	    <property name="password" value="${dataSource.password}" />
+	   
+	       
+	    <!-- 配置初始化大小、最小、最大 -->
+	    <property name="initialSize" value="5" />
+	    <property name="minIdle" value="5" />
+	    <property name="maxActive" value="20" />
+	  
+	    <!-- 配置获取连接等待超时的时间 -->
+	    <property name="maxWait" value="60000" />
+	  
+	    <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+	    <property name="timeBetweenEvictionRunsMillis" value="60000" />
+	  
+	    <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+	    <property name="minEvictableIdleTimeMillis" value="300000" />
+	   
+	    <property name="validationQuery" value="SELECT 'x'" />  
+	    <property name="testWhileIdle" value="true" />
+	    <property name="testOnBorrow" value="false" />
+	    <property name="testOnReturn" value="false" />
+	  
+	    <!-- 打开PSCache，并且指定每个连接上PSCache的大小 -->
+	    <property name="poolPreparedStatements" value="true" />
+	    <property name="maxPoolPreparedStatementPerConnectionSize" value="20" />
+	  
+	    <!-- 配置监控统计拦截的filters，去掉后监控界面sql无法统计 -->
+	    <property name="filters" value="stat,config" />
+	    <property name="connectionProperties" value="config.decrypt=${dataSource.decrypt}" />
+	</bean>
+	
+	<!-- <bean id="dataSource" class="org.beangle.database.CryptDataSource">
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="key" value="${dataSource.key}" />
+		<property name="jdbcUrl" value="${dataSource.jdbcUrl}"/>
+		<property name="user" value="${dataSource.user}" />
+		<property name="password" value="${dataSource.password}" />
+	</bean> -->
+
+
+
+	<!-- Database Properties -->
+	<bean id="hibernateConfig">
+		<property name="properties">
+			<props merge="true">
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto"></prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="usernamePreauthFilter">
+		<property name="usernameSource">
+			<bean class="org.beangle.security.idstar.preauth.IdStarUsernameSource" />
+		</property>
+	</bean>
+<!-- 
+	<bean id="usernamePreauthFilter">
+		<property name="usernameSource">
+			<bean class="org.beangle.emsapp.demo.GivenUsernameSource" />
+		</property>
+	</bean>
+	 
+	<bean id="userDetailService" class="org.beangle.emsapp.demo.SimpleUserDetailServiceImpl" autowire="byName"/>
+	
+	<bean id="authorityManager" class="org.beangle.emsapp.demo.MockAuthorityManager" autowire="byName"/>
+	
+	<bean id="authenticationmanager">
+		<property name="providers">
+			<list>
+				<ref bean="preauthUserDetailProvider"/>
+			</list>
+		</property>
+	</bean>
+	-->
+	<!--
+	<bean id="ldapUserStore" class="org.beangle.security.ldap.connect.SimpleLdapUserStore">
+        <property name="url" value="ldap://192.168.0.112:389"/>
+        <property name="base" value="dc=itc,dc=com"/>
+        <property name="userName" value="cn=root"/>
+        <property name="password" value="root"/>
+	</bean>
+	-->
+</beans>
+

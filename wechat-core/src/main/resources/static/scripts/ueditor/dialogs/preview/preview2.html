@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <script type="text/javascript" src="../internal.js"></script>
+        <script type="text/javascript" src="/wechat/static/scripts/comm/jquery-latest.js"></script>
+        <script type="text/javascript" src="/wechat/static/scripts/comm/jquery.blockUI.js"></script>
+        <title></title>
+        <script>
+        </script>
+    </head>
+    <body class="view">
+    	
+    </body>
+    <script>
+    	$.blockUI({ message: '页面加载中', css: { width: '100px' } });
+    	var un = $.unblockUI;
+    	$(document.body).append(editor.getContent());
+    	window.onload=function(){
+    		un();
+    		//$(document.getElementById('showIframe').contentWindow.document.body).append(editor.getContent());
+    		//alert(document.getElementById('showIframe').contentWindow.document.body.innerHTML);
+	        //document.getElementById('showIframe').contentWindow.document.body.innerHTML = editor.getContent();
+		}
+   	</script>
+</html>

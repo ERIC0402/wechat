@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- <bean id="sqlDialect" class="org.hibernate.dialect.H2Dialect"/>
+	
+	<bean name="sqlService"	class="org.beangle.webapp.database.service.SqlService" 
+		autowire="byName">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="dialect" ref="sqlDialect"/>
+	</bean>
+	
+	<bean name="datasourceService"	class="org.beangle.webapp.database.service.DatasourceService" 
+		autowire="byName">
+	</bean> -->
+	
+	<!-- <bean id="jkDataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
+	    <property name="url" value="${jkDataSource.jdbcUrl}" />
+	    <property name="username" value="${jkDataSource.user}" />
+	    <property name="password" value="${jkDataSource.password}" />
+	   
+	    
+	    <property name="initialSize" value="5" />
+	    <property name="minIdle" value="5" />
+	    <property name="maxActive" value="20" />
+	  
+	    <property name="maxWait" value="60000" />
+	  
+	    <property name="timeBetweenEvictionRunsMillis" value="60000" />
+	  
+	    <property name="minEvictableIdleTimeMillis" value="300000" />
+	   
+	    <property name="validationQuery" value="SELECT 'x'" />  
+	    <property name="testWhileIdle" value="true" />
+	    <property name="testOnBorrow" value="false" />
+	    <property name="testOnReturn" value="false" />
+	  
+	    <property name="poolPreparedStatements" value="true" />
+	    <property name="maxPoolPreparedStatementPerConnectionSize" value="20" />
+	  
+	    <property name="filters" value="stat,config" />
+	    <property name="connectionProperties" value="config.decrypt=${dataSource.decrypt}" />
+	</bean>
+	
+	<bean id="jkSessionFactory"	class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="jkDataSource"/>
+		<property name="namingStrategy" ref="railsNamingStrategy"/>
+		<property name="lobHandler" ref="lobHandler"/>
+		<property name="hibernateProperties" ref="hibernateConfig"/>
+		<property name="configurationClass" value="org.beangle.model.persist.hibernate.OverrideConfiguration"/>
+		<property name="configLocations">
+			<value>classpath*:META-INF/hibernate.cfg.xml</value>
+		</property>
+	</bean>
+	<bean id="jkTransactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="jkSessionFactory"/>
+	</bean>
+	<bean id="jkEntityDao" parent="baseTransactionProxy">
+		<property name="transactionManager" ref="jkTransactionManager"/>
+		<property name="target">
+			<bean
+			class="org.beangle.model.persist.hibernate.HibernateEntityDao"
+			autowire="byName">
+				<property name="sessionFactory" ref="jkSessionFactory"/>
+			</bean>
+		</property>
+	</bean> -->
+</beans>

@@ -1,0 +1,7 @@
+@-webkit-keyframes sliderightout{from{-webkit-transform:translateX(0px);opacity:1}to{-webkit-transform:translateX(100%);opacity:1}}
+@-webkit-keyframes sliderightin{from{-webkit-transform:translateX(100%);opacity:1}to{-webkit-transform:translateX(0px);opacity:1}}
+
+.sliderightout{-webkit-animation:sliderightout 400ms ease-in-out;}
+.sliderightin{-webkit-animation:sliderightin 400ms ease-in-out;}
+.animatestart{position:fixed;top:0;left:0;width:100%;height:100%;overflow-x:hidden;z-index:999}
+.animatestart.container{overflow-x:hidden;-webkit-transform:translate3d(0,0,0);-webkit-backface-visibility:hidden;}

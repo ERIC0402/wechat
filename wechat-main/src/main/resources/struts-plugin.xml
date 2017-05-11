@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<package name="beangle" extends="struts-default">
+		<interceptors>
+			<interceptor name="flash" class="org.beangle.struts2.interceptor.FlashInterceptor"/>
+			<interceptor name="i18n2" class="org.beangle.struts2.interceptor.I18nInterceptor"/>
+			<interceptor name="ssc" class="org.beangle.struts2.interceptor.SimpleServletConfigInterceptor"/>
+			<interceptor name="wechatUser" class="org.beangle.wechat.core.interceptor.WechatUserInterceptor"/>
+			<interceptor name="wechatCorpUser" class="org.beangle.wechat.core.interceptor.WechatCorpUserInterceptor"/>
+			<interceptor-stack name="beangleStack">
+				<interceptor-ref name="exception"/>
+				<interceptor-ref name="i18n2"/>
+				<interceptor-ref name="fileUpload"/>
+				<interceptor-ref name="ssc"/>
+				<interceptor-ref name="flash"/>
+				<interceptor-ref name="wechatUser"/>
+				<interceptor-ref name="wechatCorpUser"/>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="beangleStack"/>
+		<global-results>
+			<result name="redirector" type="freemarker">/template/redirector.ftl</result>
+			<result name="error" type="freemarker">/template/error.ftl</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception" result="error"/>
+		</global-exception-mappings>
+	</package>
+
+</struts>

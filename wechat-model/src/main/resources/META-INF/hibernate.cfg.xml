@@ -1,0 +1,27 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+
+		<!-- 微信相关 -->
+		<mapping class="org.beangle.wechat.core.model.WechatAccount"/>
+		<mapping class="org.beangle.wechat.core.model.WechatButton"/>
+		<mapping class="org.beangle.wechat.core.model.WechatKey"/>
+		<mapping class="org.beangle.wechat.core.model.WechatNewsItem"/>
+		<mapping class="org.beangle.wechat.core.model.WechatTextNewsTemplate"/>
+		<mapping class="org.beangle.wechat.core.model.WechatUser"/>
+		<mapping class="org.beangle.wechat.core.model.WechatSource"/>
+		<mapping class="org.beangle.wechat.core.model.WechatArticleItem"/>
+		<mapping class="org.beangle.wechat.core.model.WechatArticle"/>
+		<mapping class="org.beangle.wechat.core.model.WechatArticleGroup"/>
+		<mapping class="org.beangle.wechat.core.model.WechatImage"/>
+		<mapping class="org.beangle.wechat.core.model.WechatCorpApp"/>
+		<mapping class="org.beangle.wechat.core.model.WechatCorpUser"/>
+		<mapping class="org.beangle.wechat.core.model.WechatCorpDepartment"/>
+		
+		<!-- 动态定时器 -->
+		<mapping class="org.beangle.wechat.timetask.model.TimeTask"/>
+		
+	</session-factory>
+</hibernate-configuration>

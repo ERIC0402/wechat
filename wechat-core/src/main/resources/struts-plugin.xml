@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<bean type="org.apache.struts2.views.TagLibraryDirectiveProvider" name="w" class="org.beangle.wechat.template.WechatTagLibrary" />
+    <bean type="org.apache.struts2.views.TagLibraryModelProvider" name="w" class="org.beangle.wechat.template.WechatTagLibrary" />
+    
+</struts>

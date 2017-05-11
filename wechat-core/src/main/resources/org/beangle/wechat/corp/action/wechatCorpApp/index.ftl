@@ -1,0 +1,10 @@
+[#ftl]
+[@b.head/]
+[@b.div id="wechat"]
+	[@b.form action="!search" title="ui.searchForm" target="wechatlist" theme="search"]
+		[@b.textfields names="wechatCorpApp.wechatCorpAppName;微信企业应用名"/]
+		<input type="hidden" name="wechatCorpApp.wechatAccount.id" value="${Parameters['wechatAccount.id']!}" />
+	[/@]
+	[@b.div href="!search?wechatCorpApp.wechatAccount.id=${Parameters['wechatAccount.id']!}" id="wechatlist" class="dataList"/]
+[/@]	
+[@b.foot/]

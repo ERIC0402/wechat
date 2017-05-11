@@ -1,0 +1,8 @@
+[#ftl]
+[@b.head/]
+	[@b.form action="!search" title="ui.searchForm" target="timeTasklist" theme="search"]
+		[@b.textfields names="timeTask.triggerName;触发器名称"/]
+		[@b.select label="状态" name="timeTask.status"  items={'1':'启用','0':'禁用'}/]
+	[/@]
+	[@b.div href="!search" id="timeTasklist" class="dataList"/]
+[@b.foot/]
